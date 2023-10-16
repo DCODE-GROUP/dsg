@@ -1,8 +1,7 @@
 const fs = require('fs');
 
 const sourcePath = __dirname + "/src/components";
-// --path flag also can be used to define the end path for the copying components
-const destinationPath = process.env.npm_config_path || process.cwd() + "/resources/js/vue/components/dsg";
+const destinationPath = process.cwd() + "/resources/js/vue/components/dsg";
 
 if (!fs.existsSync(destinationPath)) {
     fs.mkdirSync(destinationPath, {recursive: true})
