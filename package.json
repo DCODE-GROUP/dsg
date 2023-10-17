@@ -18,5 +18,8 @@
   "bugs": {
     "url": "https://github.com/DCODE-GROUP/dsg/issues"
   },
-  "homepage": "https://github.com/DCODE-GROUP/dsg#readme"
+  "homepage": "https://github.com/DCODE-GROUP/dsg#readme",
+  "dependencies": {
+    "@heroicons/vue": "^2.0.18"
+  }
 }
