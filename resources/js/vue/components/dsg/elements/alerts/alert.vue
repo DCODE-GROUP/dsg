@@ -2,7 +2,7 @@
   <div class="alert alert--info" role="alert">
     <div class="flex">
       <div class="flex-shrink-0">
-        <v-icon icon="InformationCircleIcon" class="alert__icon"></v-icon>
+        <dsg-icon icon="InformationCircleIcon" class="alert__icon"></dsg-icon>
       </div>
       <div class="alert__center">
         <p v-if="heading" class="alert__heading alert__heading--info">{{ heading }}</p>
@@ -18,7 +18,7 @@
         <div class="-mx-1.5 -my-1.5">
           <button type="button" class="alert__button alert__button--info">
             <span class="sr-only">Dismiss</span>
-            <v-icon icon="XMarkIcon" class="h-5 w-5"></v-icon>
+            <dsg-icon icon="XMarkIcon" class="h-5 w-5"></dsg-icon>
           </button>
         </div>
       </div>
