@@ -3,18 +3,20 @@ This is intended to be the package for the project starter to use that houses sc
 
 ## Installation
 
-The `npm install dsg` command won't work because it isn't published to npm.
+The `composer require dcode/dsg` command won't work because it isn't published to packagist.
 For now, you have to download from git and link it to your project.
 
 
 To copy files to your project run:
 ```bash
-node ./node_modules/dsg/publish-components.js
+php artisan vendor:publish --provider=Dcode\\Dsg\\DsgServiceProvider
 ```
-It will copy the component files to the `resources/js/vue/components/dsg` folder.
+It will copy the resource files to the `/resources` folder.
 
-Add this code to the `app.js` file before `app.mount("#vueApp")`:
+Add this code to the `app.js` file:
 ```js
+import * as _ from "lodash";
+
 const files = import.meta.glob(
     './vue/components/dsg/**/*.vue',
     { eager: true }
