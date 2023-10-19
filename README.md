@@ -38,3 +38,12 @@ Object.entries(files).forEach(([path, mod]) => {
 });
 ```
 This will register the components globally.
+
+To use the vue components you can add the dsg prefix. Like this:
+```html
+<dsg-alert type="success"
+           heading="Test heading title"
+           message="Test message text"
+></dsg-alert>
+```
+Check the Dcode Design System page for the available components: http://design-system.dcodegroup.com
