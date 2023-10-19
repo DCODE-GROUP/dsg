@@ -17,6 +17,11 @@ Add this code to the `app.js` file:
 ```js
 import * as _ from "lodash";
 
+import.meta.glob(
+    '../css/components/dsg/*.pcss',
+    { eager: true }
+);
+
 const files = import.meta.glob(
     './vue/components/dsg/**/*.vue',
     { eager: true }
