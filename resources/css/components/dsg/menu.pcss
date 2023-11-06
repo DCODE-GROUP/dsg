@@ -1,0 +1,75 @@
+.menu {
+    @apply h-screen overflow-y-auto bg-slate-800 transition-all;
+
+    &--open {
+        @apply w-[253px] min-w-[253px];
+    }
+    &--closed {
+        @apply w-[61px] min-w-[61px];
+    }
+
+    &__header {
+        @apply flex h-20 items-center justify-between px-4 text-white;
+    }
+
+    &__logo {
+        @apply overflow-hidden transition-all;
+
+        &--open {
+            @apply w-36;
+        }
+        &--closed {
+            @apply w-0;
+        }
+    }
+
+    &__toggle {
+        @apply transition-all;
+
+        &--open {
+            @apply -rotate-90;
+        }
+        &--closed {
+            @apply rotate-90;
+        }
+    }
+
+    &__list {
+        @apply space-y-2xsSpace text-sm font-medium text-slate-400;
+    }
+
+    &__group {
+        @apply border-t border-primary-700 py-2;
+    }
+
+    &__items {
+        @apply flex items-center space-x-xsSpace px-4 py-2 hover:font-semibold hover:text-white;
+
+        &--active {
+            @apply font-semibold text-white;
+        }
+    }
+
+    &__item-title {
+        @apply flex-1 overflow-hidden;
+
+        &--open {
+            @apply w-full;
+        }
+        &--closed {
+            @apply w-0;
+        }
+    }
+
+    &__add-button {
+        @apply absolute right-4 top-1/2 -translate-y-1/2 rounded bg-slate-700 hover:text-white;
+    }
+
+    &__child-item {
+        @apply flex items-center space-x-xsSpace p-xsSpace hover:font-semibold hover:text-white;
+
+        &--active {
+            @apply font-semibold text-white;
+        }
+    }
+}

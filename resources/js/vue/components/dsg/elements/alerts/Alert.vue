@@ -38,6 +38,7 @@
 
 <script setup>
 import { ref, reactive, computed } from "vue";
+import "../../../../../../css/components/dsg/alert.pcss";
 
 const props = defineProps({
   type: String,
