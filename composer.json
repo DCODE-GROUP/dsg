@@ -1,5 +1,5 @@
 {
-  "name": "dcode/dsg",
+  "name": "dcodegroup/dsg",
   "version": "0.1.0",
   "description": "This is intended to be the package for the project starter to use that houses scss etc.",
   "type": "library",

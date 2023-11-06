@@ -12,29 +12,25 @@ To copy files to your project run:
 php artisan vendor:publish --provider=Dcode\\Dsg\\DsgServiceProvider
 ```
 It will copy the resource files to the `/resources` folder.
+Use `--force` flag if you want to override the previously published files.
 
 Add this code to the `app.js` file:
 ```js
 import * as _ from "lodash";
 
-import.meta.glob(
-    '../css/components/dsg/*.pcss',
-    { eager: true }
-);
-
-const files = import.meta.glob(
-    './vue/components/dsg/**/*.vue',
-    { eager: true }
-);
+const files = import.meta.glob("./vue/components/dsg/**/*.vue", { eager: true });
 
 Object.entries(files).forEach(([path, mod]) => {
-    const componentName = _.upperFirst(
-        _.camelCase(path.split('/').pop().replace(/\.\w+$/, ''))
-    );
+  const componentName = _.upperFirst(
+    _.camelCase(
+      path
+        .split("/")
+        .pop()
+        .replace(/\.\w+$/, ""),
+    ),
+  );
 
-    app.component(
-        `Dsg${componentName}`, mod.default
-    );
+  app.component(`Dsg${componentName}`, mod.default);
 });
 ```
 This will register the components globally.
