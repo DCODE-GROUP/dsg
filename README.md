@@ -14,6 +14,11 @@ php artisan vendor:publish --provider=Dcode\\Dsg\\DsgServiceProvider
 It will copy the resource files to the `/resources` folder.
 Use `--force` flag if you want to override the previously published files.
 
+Before registering the components make sure these node packages are installed:
+- lodash
+- vue-cookies
+- @heroicons/vue
+
 Register the components in the `app.js` file:
 ```js
 import { registerDsgComponents } from "./vue/components/dsg";
