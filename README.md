@@ -14,26 +14,13 @@ php artisan vendor:publish --provider=Dcode\\Dsg\\DsgServiceProvider
 It will copy the resource files to the `/resources` folder.
 Use `--force` flag if you want to override the previously published files.
 
-Add this code to the `app.js` file:
+Register the components in the `app.js` file:
 ```js
-import * as _ from "lodash";
+import { registerDsgComponents } from "./vue/components/dsg";
 
-const files = import.meta.glob("./vue/components/dsg/**/*.vue", { eager: true });
-
-Object.entries(files).forEach(([path, mod]) => {
-  const componentName = _.upperFirst(
-    _.camelCase(
-      path
-        .split("/")
-        .pop()
-        .replace(/\.\w+$/, ""),
-    ),
-  );
-
-  app.component(`Dsg${componentName}`, mod.default);
-});
+// Add it before you mount the vue applicaton
+registerDsgComponents(app);
 ```
-This will register the components globally.
 
 To use the vue components you can add the dsg prefix. Like this:
 ```html
