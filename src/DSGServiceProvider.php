@@ -1,13 +1,10 @@
 <?php
 
-namespace Dcode\DSG;
+namespace Dcodegroup\Dsg;
 
-use Dcode\DSG\Livewire\Modal;
-use Dcode\DSG\Livewire\SlideOver;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\View\Compilers\BladeCompiler;
-use Livewire\Livewire;
 
 class DSGServiceProvider extends ServiceProvider
 {
@@ -18,9 +15,6 @@ class DSGServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        Livewire::component('dsg-modal', Modal::class);
-        Livewire::component('dsg-slide-over', SlideOver::class);
-
         $this->loadViewsFrom($this->pathToViews(), 'dsg');
 
         $this->configureComponents();

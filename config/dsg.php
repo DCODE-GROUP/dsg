@@ -1,7 +1,5 @@
 <?php
 
-// TODO: need a helper which provides the option to override the config class with a property when we call a component
-
 return [
     'buttons' => [
         'default' => 'rounded-lg py-2 px-3 text-center font-medium flex justify-center items-center',
@@ -50,7 +48,6 @@ return [
                 'off' => 'cursor-pointer text-slate-600 hover:text-slate-700',
             ],
         ],
-        //        'black' => 'rounded-md bg-black px-3 py-2 text-sm font-semibold text-white shadow-sm hover:opacity-90 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-black',
     ],
 
     'forms' => [
