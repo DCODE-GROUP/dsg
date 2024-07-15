@@ -2,12 +2,18 @@
 
 return [
     'buttons' => [
-        'default' => 'rounded-lg py-2 px-3 text-center font-medium flex justify-center items-center',
-
+        'default' => 'rounded-lg text-center font-semibold flex justify-center items-center',
+        'sizes' => [
+            'sm' => 'py-2 px-3',
+            'md' => 'py-2.5, px-3.5',
+            'lg' => 'py-2.5 px-4',
+            'xl' => 'py-3 px-4.5',
+            '2xl' => 'py-4 px-5.5',
+        ],
         'primary' => [
             'disabled' => [
                 'on' => 'pointer-events-none cursor-not-allowed bg-slate-100 text-slate-400',
-                'off' => 'cursor-pointer bg-blue-600 text-white hover:bg-blue-700',
+                'off' => 'cursor-pointer bg-brand-600 text-white hover:bg-brand-700 focus:outline-4',
             ],
         ],
         'secondary' => [
@@ -39,13 +45,6 @@ return [
             'disabled' => [
                 'on' => 'pointer-events-none cursor-not-allowed text-slate-400',
                 'off' => 'cursor-pointer text-primary-600 hover:text-primary-700',
-            ],
-        ],
-        'link-tertiary' => [
-            'default' => 'font-medium',
-            'disabled' => [
-                'on' => 'pointer-events-none cursor-not-allowed text-slate-400',
-                'off' => 'cursor-pointer text-slate-600 hover:text-slate-700',
             ],
         ],
     ],

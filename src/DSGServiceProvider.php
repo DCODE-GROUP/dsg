@@ -151,6 +151,6 @@ class DSGServiceProvider extends ServiceProvider
      */
     protected function registerComponent(string $component, string $alias)
     {
-        Blade::component('dsg::components.livewire.'.$component, 'dsg-'.$alias);
+        Blade::component('dsg::components.blade.'.$component, 'dsg-'.$alias);
     }
 }
