@@ -58,7 +58,7 @@ return [
                 'default' => '',
                 'disabled' => '',
             ],
-        ]
+        ],
     ],
 
     'forms' => [
