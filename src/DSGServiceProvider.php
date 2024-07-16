@@ -49,6 +49,7 @@ class DSGServiceProvider extends ServiceProvider
 
             // Buttons
             $this->registerComponent('buttons.button', 'button');
+            $this->registerComponent('buttons.destructive', 'button-destructive');
 
             // Empty states
             //            $this->registerComponent('empty-states.simple', 'empty-state');

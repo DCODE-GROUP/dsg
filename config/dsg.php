@@ -30,33 +30,33 @@ return [
             'disabled' => 'pointer-events-none cursor-not-allowed border border-gray-200 bg-gray-100 text-gray-400',
         ],
         'secondary' => [
-            'default' => 'cursor-pointer bg-white text-slate-600 hover:text-slate-700 border border-slate-300 hover:border-slate-400',
-            'disabled' => 'pointer-events-none cursor-not-allowed bg-white text-slate-400 border border-slate-300',
+            'default' => 'cursor-pointer bg-white text-brand-600 hover:text-brand-800 hover:bg-brand-50 border border-brand-300 hover:border-brand-400',
+            'disabled' => 'pointer-events-none cursor-not-allowed bg-white text-brand-400 border border-brand-300',
         ],
         'tertiary' => [
-            'default' => 'cursor-pointer text-slate-600 hover:text-slate-700 hover:bg-slate-100',
-            'disabled' => 'pointer-events-none cursor-not-allowed text-slate-400',
+            'default' => 'cursor-pointer text-brand-600 hover:text-brand-700 hover:bg-brand-50 hover:bg-brand-100',
+            'disabled' => 'pointer-events-none cursor-not-allowed text-brand-400',
         ],
         'link' => [
-            'default' => 'cursor-pointer text-primary-600 hover:text-primary-700',
-            'disabled' => 'pointer-events-none cursor-not-allowed text-slate-400',
+            'default' => 'cursor-pointer text-brand-600 hover:text-brand-700',
+            'disabled' => 'pointer-events-none cursor-not-allowed text-brand-400',
         ],
         'destructive' => [
             'primary' => [
                 'default' => 'cursor-pointer bg-red-600 text-white hover:bg-red-700',
-                'disabled' => 'pointer-events-none cursor-not-allowed bg-slate-100 text-slate-400',
+                'disabled' => 'pointer-events-none cursor-not-allowed bg-brand-100 text-gray-400',
             ],
             'secondary' => [
-                'default' => '',
-                'disabled' => '',
+                'default' => 'cursor-pointer bg-white text-red-600 hover:text-red-800 hover:bg-red-50 border border-red-300 hover:border-red-400',
+                'disabled' => 'pointer-events-none cursor-not-allowed bg-white text-red-400 border border-red-300',
             ],
             'tertiary' => [
-                'default' => '',
-                'disabled' => '',
+                'default' => 'cursor-pointer text-red-600 hover:text-red-700 hover:bg-red-50 hover:bg-red-100',
+                'disabled' => 'pointer-events-none cursor-not-allowed text-red-400',
             ],
             'link' => [
-                'default' => '',
-                'disabled' => '',
+                'default' => 'cursor-pointer text-red-600 hover:text-red-700',
+                'disabled' => 'pointer-events-none cursor-not-allowed text-red-400',
             ],
         ],
     ],
