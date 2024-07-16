@@ -2,51 +2,63 @@
 
 return [
     'buttons' => [
-        'default' => 'rounded-lg text-center font-semibold flex justify-center items-center',
+        'default' => 'rounded-lg text-sm text-center font-semibold flex justify-center items-center gap-1',
         'sizes' => [
-            'sm' => 'py-2 px-3',
-            'md' => 'py-2.5, px-3.5',
-            'lg' => 'py-2.5 px-4',
-            'xl' => 'py-3 px-4.5',
-            '2xl' => 'py-4 px-5.5',
+            'sm' => [
+                'default' => 'py-2 px-3',
+                'icon' => 'p-2',
+            ],
+            'md' => [
+                'default' => 'py-2.5 px-3.5',
+                'icon' => 'p-2.5',
+            ],
+            'lg' => [
+                'default' => 'py-2.5 px-4',
+                'icon' => 'p-3',
+            ],
+            'xl' => [
+                'default' => 'py-3 px-4.5',
+                'icon' => 'p-3.5',
+            ],
+            '2xl' => [
+                'default' => 'py-4 px-5.5',
+                'icon' => 'p-4',
+            ],
         ],
         'primary' => [
-            'disabled' => [
-                'on' => 'pointer-events-none cursor-not-allowed bg-slate-100 text-slate-400',
-                'off' => 'cursor-pointer bg-brand-600 text-white hover:bg-brand-700 focus:outline-4',
-            ],
+            'default' => 'cursor-pointer bg-brand-600 text-white hover:bg-brand-700',
+            'disabled' => 'pointer-events-none cursor-not-allowed border border-gray-200 bg-gray-100 text-gray-400',
         ],
         'secondary' => [
-            'disabled' => [
-                'on' => 'pointer-events-none cursor-not-allowed bg-white text-slate-400 border border-slate-300',
-                'off' => 'cursor-pointer bg-white text-slate-600 hover:text-slate-700 border border-slate-300 hover:border-slate-400',
-            ],
+            'default' => 'cursor-pointer bg-white text-slate-600 hover:text-slate-700 border border-slate-300 hover:border-slate-400',
+            'disabled' => 'pointer-events-none cursor-not-allowed bg-white text-slate-400 border border-slate-300',
         ],
         'tertiary' => [
-            'disabled' => [
-                'on' => 'pointer-events-none cursor-not-allowed text-slate-400',
-                'off' => 'cursor-pointer text-slate-600 hover:text-slate-700 hover:bg-slate-100',
-            ],
-        ],
-        'error' => [
-            'disabled' => [
-                'on' => 'pointer-events-none cursor-not-allowed bg-slate-100 text-slate-400',
-                'off' => 'cursor-pointer bg-red-600 text-white hover:bg-red-700',
-            ],
-        ],
-        'error-tertiary' => [
-            'disabled' => [
-                'on' => 'pointer-events-none cursor-not-allowed bg-slate-100 text-slate-400',
-                'off' => 'cursor-pointer text-red-600 hover:text-red-700 hover:bg-red-50',
-            ],
+            'default' => 'cursor-pointer text-slate-600 hover:text-slate-700 hover:bg-slate-100',
+            'disabled' => 'pointer-events-none cursor-not-allowed text-slate-400',
         ],
         'link' => [
-            'default' => 'font-medium',
-            'disabled' => [
-                'on' => 'pointer-events-none cursor-not-allowed text-slate-400',
-                'off' => 'cursor-pointer text-primary-600 hover:text-primary-700',
-            ],
+            'default' => 'cursor-pointer text-primary-600 hover:text-primary-700',
+            'disabled' => 'pointer-events-none cursor-not-allowed text-slate-400',
         ],
+        'destructive' => [
+            'primary' => [
+                'default' => 'cursor-pointer bg-red-600 text-white hover:bg-red-700',
+                'disabled' => 'pointer-events-none cursor-not-allowed bg-slate-100 text-slate-400',
+            ],
+            'secondary' => [
+                'default' => '',
+                'disabled' => '',
+            ],
+            'tertiary' => [
+                'default' => '',
+                'disabled' => '',
+            ],
+            'link' => [
+                'default' => '',
+                'disabled' => '',
+            ],
+        ]
     ],
 
     'forms' => [
