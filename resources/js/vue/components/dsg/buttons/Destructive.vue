@@ -64,7 +64,7 @@ function getClasses() {
     [
       "buttons.default",
       "buttons.sizes." + props.size + "." + (slots.icon && !slots.default ? "icon" : "default"),
-      "buttons." + props.type + "." + (props.disabled ? "disabled" : "default"),
+      "buttons.destructive." + props.type + "." + (props.disabled ? "disabled" : "default"),
     ],
     props.extraClasses,
   );

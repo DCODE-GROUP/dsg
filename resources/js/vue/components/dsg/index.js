@@ -32,8 +32,14 @@ function getComponentName(path) {
 }
 
 function config(path) {
-  const paths = path.split(".");
   let current = window.dsgConfig;
+
+  if (current === undefined) {
+    console.warn("The dsg config list is missing");
+    return "";
+  }
+
+  const paths = path.split(".");
 
   for (let i = 0; i < paths.length; ++i) {
     if (current[paths[i]] === undefined) {
