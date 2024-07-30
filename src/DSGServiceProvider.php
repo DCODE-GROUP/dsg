@@ -15,13 +15,13 @@ class DSGServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadViewsFrom($this->pathToViews(), 'dsg');
+        $this->loadViewsFrom($this->pathToResources(), 'dsg');
 
         $this->configureComponents();
 
         $this->publishes([
             $this->getConfigFile() => config_path('dsg.php'),
-            $this->pathToViews() => resource_path('views/vendor/dsg'),
+            $this->pathToResources() => resource_path(),
         ]);
     }
 
@@ -132,9 +132,9 @@ class DSGServiceProvider extends ServiceProvider
     /**
      * @return string
      */
-    protected function pathToViews()
+    protected function pathToResources()
     {
-        return __DIR__.'/../resources/views';
+        return __DIR__.'/../resources';
     }
 
     /**
