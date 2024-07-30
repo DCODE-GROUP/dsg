@@ -13,13 +13,12 @@ if (! function_exists('dsgClasses')) {
         $classes = '';
         foreach ((array) $configPaths as $key => $configPath) {
             $extraClassKey = Str::of($configPath)
-                ->replace('dsg.', '')
                 ->replace('.', '_')
                 ->replace('-', '_')
                 ->value();
 
             $classes .= ($key === 0 ? '' : ' ');
-            $classes .= config($configPath);
+            $classes .= config('dsg.'. $configPath);
             $classes .= isset($extraClasses[$extraClassKey]) ? ' '.$extraClasses[$extraClassKey] : '';
         }
 

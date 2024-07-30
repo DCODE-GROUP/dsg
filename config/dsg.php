@@ -2,26 +2,26 @@
 
 return [
     'buttons' => [
-        'default' => 'rounded-lg text-sm text-center font-semibold flex justify-center items-center gap-1',
+        'default' => 'rounded-lg text-center font-semibold flex justify-center items-center gap-1',
         'sizes' => [
             'sm' => [
-                'default' => 'py-2 px-3',
+                'default' => 'py-2 px-3 text-sm',
                 'icon' => 'p-2',
             ],
             'md' => [
-                'default' => 'py-2.5 px-3.5',
+                'default' => 'py-2.5 px-3.5 text-sm',
                 'icon' => 'p-2.5',
             ],
             'lg' => [
-                'default' => 'py-2.5 px-4',
+                'default' => 'py-2.5 px-4 text-base',
                 'icon' => 'p-3',
             ],
             'xl' => [
-                'default' => 'py-3 px-4.5',
+                'default' => 'py-3 px-4.5 text-base',
                 'icon' => 'p-3.5',
             ],
             '2xl' => [
-                'default' => 'py-4 px-5.5',
+                'default' => 'py-4 px-5.5 text-lg',
                 'icon' => 'p-4',
             ],
         ],
