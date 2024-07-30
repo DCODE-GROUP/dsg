@@ -18,7 +18,7 @@ if (! function_exists('dsgClasses')) {
                 ->value();
 
             $classes .= ($key === 0 ? '' : ' ');
-            $classes .= config('dsg.'. $configPath);
+            $classes .= config('dsg.'.$configPath);
             $classes .= isset($extraClasses[$extraClassKey]) ? ' '.$extraClasses[$extraClassKey] : '';
         }
 
