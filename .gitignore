@@ -1,6 +1,6 @@
 pint.cache
 composer.lock
-vendor
+/vendor
 coverage
 .phpunit.result.cache
 .idea
