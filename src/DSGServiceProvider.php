@@ -103,10 +103,12 @@ class DSGServiceProvider extends ServiceProvider
 
             // Menus components
             $this->registerComponent('menus.sidebars.default', 'sidebar');
-            $this->registerComponent('menus.tabs.default', 'tabs');
             $this->registerComponent('menus.drop-down.frame', 'drop-down');
             $this->registerComponent('menus.drop-down.item', 'drop-down-item');
             $this->registerComponent('menus.drop-down.profile', 'profile-menu');
+
+            // Tabs
+            $this->registerComponent('menus.tabs.horizontal', 'tabs-horizontal');
 
             // Cards
             $this->registerComponent('cards.profile', 'card-profile');

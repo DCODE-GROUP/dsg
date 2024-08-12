@@ -124,16 +124,18 @@ return [
         ],
     ],
 
-    //    'badges' => [
-    //        'base' => 'inline-flex items-center rounded-md px-2 py-1 text-xs font-medium ring-1 ring-inset',
-    //        'levels' => [
-    //            'gray' => 'bg-gray-50 text-gray-600 ring-gray-500/10',
-    //            'yellow' => 'bg-yellow-50 text-yellow-800 ring-yellow-600/20',
-    //            'red' => 'bg-red-50 text-red-700 ring-red-600/10',
-    //            'green' => 'bg-green-50 text-green-700 ring-green-600/20',
-    //            'blue' => 'bg-blue-50 text-blue-700 ring-blue-700/10',
-    //        ],
-    //    ],
+    'badges' => [
+        'base' => 'inline-flex items-center font-medium ring-1 ring-inset',
+        'types' => [
+            'pill_color' => 'rounded-2xl',
+        ],
+        'sizes' => [
+            'sm' => 'px-2 py-1 text-xs',
+        ],
+        'colors' => [
+            'gray' => 'bg-gray-50 text-gray-600 ring-gray-500/10',
+        ],
+    ],
 
     'drop_down' => [
         'button' => 'p-2 hover:bg-slate-50 rounded-lg text-slate-600',
@@ -159,32 +161,37 @@ return [
         ],
     ],
 
-    'tab' => [
+    'tabs' => [
         'frame' => [
-            'default' => 'border-slate-200',
+            'desktop' => 'border-slate-200 hidden md:block',
+            'mobile' => 'md:hidden',
             'horizontal' => 'border-b',
             'vertical' => '',
         ],
         'wrapper' => [
-            'default' => 'font-medium text-slate-400 flex',
+            'default' => 'font-medium text-gray-500 flex',
             'horizontal' => '-mb-px space-x-4',
             'vertical' => 'flex-col space-y-4',
         ],
         'item' => [
-            'default' => 'cursor-pointer whitespace-nowrap pb-1 pl-2',
+            'default' => 'font-semibold cursor-pointer whitespace-nowrap pb-3 px-1 flex justify-center items-center gap-2',
             'active' => [
                 'on' => [
-                    'horizontal' => 'border-b-2 border-primary-700 font-semibold text-primary-700',
-                    'vertical' => 'border-l-2 border-primary-700 font-semibold text-primary-700',
+                    'horizontal' => 'border-b-2 border-brand-700 text-brand-700',
+                    'vertical' => 'border-l-2 border-brand-700 text-brand-700',
                 ],
                 'off' => [
-                    'horizontal' => 'hover:border-primary-700 hover:text-primary-700',
-                    'vertical' => 'hover:border-primary-700 hover:text-primary-700',
+                    'horizontal' => 'hover:border-brand-700 hover:text-brand-700',
+                    'vertical' => 'hover:border-brand-700 hover:text-brand-700',
                 ],
             ],
             'disabled' => [
                 'on' => 'pointer-events-none !border-none !text-slate-400',
             ],
+            'sizes' => [
+                'sm' => 'text-sm',
+                'md' => 'text-base',
+            ]
         ],
     ],
 

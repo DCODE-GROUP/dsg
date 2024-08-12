@@ -1,20 +1,16 @@
 @props([
-    'errors' => '',
     'name' => '',
-    'options' => [],
     'placeholder' => '',
-    'disabled' => false,
-    'readonly' => false,
-    'binding' => 'wire:model',
-    'extraClasses' => '',
+    'options' => [],
     'value' => null,
+    'eventListener' => 'change-select',
+    'extraClasses' => [],
 ])
 
 <select name="{{ $name }}"
-        :wired="true"
-        @if($disabled) disabled @endif
-        {{ $attributes->merge(['class' => config('dsg.forms.input.default') . ' ' . config('dsg.forms.input.readonly.' . ($readonly ? 'on' : 'off')) . ' ' . $extraClasses]) }}
-        {{ $binding }}="{{ $name }}"
+        x-model="{{ $name }}"
+        x-on:change="$dispatch('{{ $eventListener }}', {tab: $event.target.value})"
+        {{ $attributes->merge(['class' => dsgClasses(['forms.input.default'], $extraClasses)]) }}
 >
     @if ($placeholder)
         <option value="">{{ $placeholder }}</option>
@@ -22,12 +18,8 @@
 
 
     @foreach($options as $option)
-        <option wire:key="{{ $option->get('key') }}"
-                value="{{ $option->get('value') }}"
-                @if($option->get('disabled')) disabled @endif
-                @if($option->get('selected')) selected @endif
-        >
-            {{ $option->get('label') }}
+        <option value="{{ $option['value'] }}" @if($option['selected']) selected @endif>
+            {{ $option['label'] }}
         </option>
     @endforeach
 </select>
