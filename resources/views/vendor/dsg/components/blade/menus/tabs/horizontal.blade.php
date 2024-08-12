@@ -16,7 +16,7 @@
      x-init="
         document.addEventListener('{{ $eventListener }}', event => {
             const tab = tabs[event.detail.tab];
-            if (tab !== undefined && tab.href !== undefined) {
+            if (tab !== undefined && tab.href !== undefined && tab.href) {
                 window.location.href = tab.href;
                 return;
             }
@@ -31,7 +31,7 @@
         <nav class="{{ dsgClasses(['tabs.wrapper.default', 'tabs.wrapper.horizontal'], $extraClasses) }}" aria-label="Tabs">
             @foreach($tabs as $key => $tab)
                 @php
-                    $mobileTab[$key] = [
+                    $mobileTabs[$key] = [
                         'label' => $tab['name'],
                         'value' => $key,
                         'selected' => $tab['active'] ?? false,
@@ -47,13 +47,13 @@
 
                 <a @if($tab['href'] ?? false)
                        href="{{ $tab['href'] }}"
-                   class="{{ $tabClasses }}"
+                       class="{{ $tabClasses }}"
                    @else
                        x-on:click="openedPage = '{{ $key }}'; $dispatch('{{ $eventListener }}', {tab: '{{ $key }}'})"
-                   x-bind:class="{ '{{ dsgClasses('tabs.item.active.on.horizontal', $extraClasses) }}' : openedPage == '{{ $key }}',
-                                       '{{ dsgClasses('tabs.item.active.off.horizontal', $extraClasses) }}' : openedPage != '{{ $key }}'
-                                     }"
-                   class="{{ $tabClasses }}"
+                       x-bind:class="{ '{{ dsgClasses('tabs.item.active.on.horizontal', $extraClasses) }}' : openedPage == '{{ $key }}',
+                                           '{{ dsgClasses('tabs.item.active.off.horizontal', $extraClasses) }}' : openedPage != '{{ $key }}'
+                                         }"
+                       class="{{ $tabClasses }}"
                    @endif
                    @if($tab['active'] ?? $loop->first) aria-current="page" @endif
                 >
@@ -64,7 +64,7 @@
         </nav>
     </div>
     <div class="{{ dsgClasses(['tabs.frame.mobile'], $extraClasses)  }}">
-        <x-dsg-select name="openedPage" :options="$mobileTab" :event-listener="$eventListener"></x-dsg-select>
+        <x-dsg-select name="openedPage" :options="$mobileTabs" :event-listener="$eventListener"></x-dsg-select>
     </div>
 
     @if($slot->isNotEmpty())
@@ -73,3 +73,4 @@
         </div>
     @endif
 </div>
+
