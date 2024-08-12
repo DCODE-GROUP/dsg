@@ -191,7 +191,7 @@ return [
             'sizes' => [
                 'sm' => 'text-sm',
                 'md' => 'text-base',
-            ]
+            ],
         ],
     ],
 
