@@ -10,24 +10,26 @@
 ])
 
 @php
+    // Validation with fallback values
+    $type = in_array($type, ['primary','secondary','tertiary','link','secondary_gray','tertiary_gray','link_gray']) ? $type : 'primary';
+    $size = in_array($size, ['sm','md','lg','xl','2xl']) ? $size : 'sm';
+    $iconPosition = in_array($iconPosition, ['left','right']) ? $iconPosition : 'left';
+
     $dsgClasses = dsgClasses([
         'buttons.default',
-        'buttons.sizes.'. $size .'.'. (($icon && $slot->isEmpty()) ? 'icon' : 'default'),
+        'buttons.sizes.'. $size .'.'. (($icon && $slot->isEmpty()) ? 'with_icon' : (in_array($type, ['link','link_gray']) ? 'link' : 'default')),
         'buttons.'. $type .'.'. ($disabled ? 'disabled' : 'default')
     ], $extraClasses);
 
-    // Validation with fallback values
-    $type = in_array($type, ['primary','secondary','tertiary','link']) ? $type : 'primary';
-    $size = in_array($size, ['sm','md','lg','xl','2xl']) ? $size : 'sm';
-    $iconPosition = in_array($iconPosition, ['left','right']) ? $iconPosition : 'left';
+    $dsgIconClasses = dsgClasses('buttons.sizes.'. $size .'.icon', $extraClasses);
 @endphp
 
 @if ($href)
     <a href="{!! $href !!}" class="{{ $dsgClasses }}" {{ $attributes }}>
         @if($icon)
-            @if($iconPosition === 'left') {{ svg($icon, 'w-7 h-7') }} @endif
+            @if($iconPosition === 'left') {{ svg($icon, $dsgIconClasses) }} @endif
             @if($slot->isNotEmpty()) <span>{!! $slot !!}</span> @endif
-            @if($iconPosition === 'right') {{ svg($icon, 'w-7 h-7') }} @endif
+            @if($iconPosition === 'right') {{ svg($icon, $dsgIconClasses) }} @endif
         @else
             {!! $slot !!}
         @endif
@@ -35,9 +37,9 @@
 @else
     <button class="{{ $dsgClasses }}" type="{{ $buttonType }}" {{ $attributes }}>
         @if($icon)
-            @if($iconPosition === 'left') {{ svg($icon, 'w-7 h-7') }} @endif
+            @if($iconPosition === 'left') {{ svg($icon, $dsgIconClasses) }} @endif
             @if($slot->isNotEmpty()) <span>{!! $slot !!}</span> @endif
-            @if($iconPosition === 'right') {{ svg($icon, 'w-7 h-7') }} @endif
+            @if($iconPosition === 'right') {{ svg($icon, $dsgIconClasses) }} @endif
         @else
             {!! $slot !!}
         @endif

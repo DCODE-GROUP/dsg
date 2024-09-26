@@ -1,19 +1,16 @@
 @props([
     'href' => '',
     'icon' => '',
-    'title' => '',
-    'extraClass' => '',
+    'extraClasses' => [],
 ])
 
-<a @if($href) href="{{ $href }}" wire:navigate @endif
-   {{ $attributes->merge([
-        'class' => config('dsg.drop_down.menu.item') . ' ' . ($extraClass ?? '')
-   ])}}
+<a @if($href) href="{{ $href }}" @endif
+    class="{{ dsgClasses('drop_down.menu.item', $extraClasses) }}"
 >
     @if($icon)
-        @svg($icon, 'w-4 h-4')
+        @svg($icon, dsgClasses('drop_down.menu.icon'))
     @endif
     <span class="flex-1">
-        {{ $title }}
+        {{ $slot }}
     </span>
 </a>

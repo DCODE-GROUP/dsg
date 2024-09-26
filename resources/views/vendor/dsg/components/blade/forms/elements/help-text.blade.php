@@ -1,3 +1,7 @@
-<div class="{{ config('dsg.forms.help') }}">
+@props([
+    'extraClasses' => [],
+])
+
+<div class="{{ dsgClasses('forms.help', $extraClasses) }}">
     {{ $slot }}
 </div>

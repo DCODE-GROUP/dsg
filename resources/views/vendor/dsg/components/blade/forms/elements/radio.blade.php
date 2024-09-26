@@ -1,29 +1,30 @@
 @props([
     'id' => '',
     'name' => '',
-    'label' => '',
     'value' => '',
+    'size' => '',
     'required' => false,
-    'binding' => 'wire:model',
-    'extraClasses' => '',
-    'labelClasses' => '',
-    'inputClasses' => '',
+    'extraClasses' => [],
 ])
 
-<div class="{{ config('dsg.forms.radio.wrapper') . ' ' . $extraClasses }}">
+@php
+    // Validation with fallback values
+    $size = in_array($size, ['sm','md']) ? $size : 'sm';
+@endphp
+
+<div class="{{ dsgClasses('forms.radio.wrapper', $extraClasses) }}">
     <input id="{{ $id ?: $name.$value }}"
            name="{{ $name }}"
            type="radio"
-           class="{{ config('dsg.forms.radio.input') . ' ' . $inputClasses }} }}"
-           {{ $binding }}="{{ $name }}"
+           class="{{ dsgClasses(['forms.radio.input.default', 'forms.radio.input.sizes.'. $size], $extraClasses) }}"
            value="{{ $value }}"
            @if($required) required @endif
     >
-    @if($label)
-        <label for="{{ $id ?: $name }}"
-               class="{{ config('dsg.forms.radio.label') . ' ' . $labelClasses }}"
+    @if($slot->isNotEmpty())
+        <label for="{{ $id ?: $name.$value }}"
+               class="{{ dsgClasses('forms.radio.label', $extraClasses) }}"
         >
-            {!! $label !!}
+            {{ $slot }}
         </label>
     @endif
 </div>

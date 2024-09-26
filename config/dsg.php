@@ -3,26 +3,37 @@
 return [
     'buttons' => [
         'default' => 'rounded-lg text-center font-semibold flex justify-center items-center gap-1',
+        'icon' => 'w-7 h-7',
         'sizes' => [
             'sm' => [
                 'default' => 'py-2 px-3 text-sm',
-                'icon' => 'p-2',
+                'link' => 'text-sm',
+                'with_icon' => 'p-2',
+                'icon' => 'w-5 h-5',
             ],
             'md' => [
                 'default' => 'py-2.5 px-3.5 text-sm',
-                'icon' => 'p-2.5',
+                'link' => 'text-sm',
+                'with_icon' => 'p-2.5',
+                'icon' => 'w-5 h-5',
             ],
             'lg' => [
                 'default' => 'py-2.5 px-4 text-base',
-                'icon' => 'p-3',
+                'link' => 'text-base',
+                'with_icon' => 'p-3',
+                'icon' => 'w-5 h-5',
             ],
             'xl' => [
                 'default' => 'py-3 px-4.5 text-base',
-                'icon' => 'p-3.5',
+                'link' => 'text-base',
+                'with_icon' => 'p-3.5',
+                'icon' => 'w-5 h-5',
             ],
             '2xl' => [
                 'default' => 'py-4 px-5.5 text-lg',
-                'icon' => 'p-4',
+                'link' => 'text-lg',
+                'with_icon' => 'p-4',
+                'icon' => 'w-6 h-6',
             ],
         ],
         'primary' => [
@@ -31,15 +42,28 @@ return [
         ],
         'secondary' => [
             'default' => 'cursor-pointer bg-white text-brand-600 hover:text-brand-800 hover:bg-brand-50 border border-brand-300 hover:border-brand-400',
-            'disabled' => 'pointer-events-none cursor-not-allowed bg-white text-brand-400 border border-brand-300',
+            'disabled' => 'pointer-events-none cursor-not-allowed bg-white text-gray-400 border border-gray-200',
+            'gray' => 'cursor-pointer bg-white text-gray-700 hover:text-gray-800 hover:bg-gray-50 border border-gray-300',
+        ],
+        'secondary_gray' => [
+            'default' => 'cursor-pointer bg-white text-gray-700 hover:text-gray-800 hover:bg-gray-50 border border-gray-300',
+            'disabled' => 'pointer-events-none cursor-not-allowed bg-white text-gray-400 border border-gray-200',
         ],
         'tertiary' => [
-            'default' => 'cursor-pointer text-brand-600 hover:text-brand-700 hover:bg-brand-50 hover:bg-brand-100',
+            'default' => 'cursor-pointer text-brand-600 hover:text-brand-700 hover:bg-brand-50',
             'disabled' => 'pointer-events-none cursor-not-allowed text-brand-400',
+        ],
+        'tertiary_gray' => [
+            'default' => 'cursor-pointer text-gray-600 hover:text-gray-700 hover:bg-gray-50',
+            'disabled' => 'pointer-events-none cursor-not-allowed text-gray-400',
         ],
         'link' => [
             'default' => 'cursor-pointer text-brand-600 hover:text-brand-700',
             'disabled' => 'pointer-events-none cursor-not-allowed text-brand-400',
+        ],
+        'link_gray' => [
+            'default' => 'cursor-pointer text-gray-600 hover:text-gray-700',
+            'disabled' => 'pointer-events-none cursor-not-allowed text-gray-400',
         ],
         'destructive' => [
             'primary' => [
@@ -62,13 +86,14 @@ return [
     ],
 
     'forms' => [
-        'label' => 'inline-block text-xs font-medium',
+        'label' => 'text-gray-700 inline-block text-sm font-medium',
         'input' => [
             'default' => 'rounded-lg border border-slate-300 text-slate-600 placeholder:text-slate-400 focus:border-slate-300 text-sm w-full',
             'readonly' => [
                 'on' => 'pointer-events-none cursor-not-allowed bg-slate-100 focus:shadow-[none] hover:border-slate-300',
                 'off' => 'hover:border-slate-400',
             ],
+            'textarea' => 'min-h-24 max-h-[calc(100vh-14rem)]',
         ],
         'file' => [
             'default' => 'cursor-pointer w-24 h-24 flex items-center justify-center rounded hover:border hover:border-slate-300',
@@ -91,14 +116,16 @@ return [
             'delete_icon' => 'w-4 h-4 text-slate-600',
         ],
         'color' => 'min-w-[2.25rem] min-h-[2.25rem] rounded-lg',
-        'search' => 'h-4 w-4 text-slate-400 group-hover:text-slate-400 absolute left-3 top-1/2 -translate-y-1/2',
+        'search' => 'h-4 w-4 text-slate-400 group-hover:text-slate-400 absolute left-3 top-1/2 -translate-y-1/2 flex justify-center items-center',
         'hint' => 'hidden group-hover:block absolute top-full right-0 mt-1 p-2 w-48 rounded-lg bg-white shadow-md',
         'checkbox' => [
+            'wrapper' => 'flex items-start',
             'input' => [
+                'field' => 'mt-0.5',
                 'default' => 'h-4 w-4 rounded focus:ring-transparent',
                 'readonly' => [
-                    'on' => 'pointer-events-none cursor-not-allowed border-slate-200 bg-slate-50 text-slate-300 checked:border-slate-200 checked:text-slate-300 checked:bg-slate-50 checked:hover:border-slate-200 checked:hover:text-slate-300 checked:hover:bg-slate-50 checked:focus:border-slate-200 checked:focus:text-slate-300 checked:focus:bg-slate-50',
-                    'off' => 'border-slate-300 bg-white',
+                    'on' => 'pointer-events-none cursor-not-allowed border-gray-300 bg-gray-50 text-gray-300 checked:border-gray-300 checked:text-gray-300 checked:bg-gray-50 checked:hover:border-gray-300 checked:hover:text-gray-300 checked:hover:bg-gray-50 checked:focus:border-gray-300 checked:focus:text-gray-300 checked:focus:bg-gray-50',
+                    'off' => 'border-gray-300 text-gray-300 checked:border-brand-600 checked:text-brand-600 checked:bg-brand-600 checked:hover:border-brand-600 checked:hover:text-brand-600 checked:hover:bg-brand-600 checked:focus:border-brand-600 checked:focus:text-brand-600 checked:focus:bg-brand-600',
                 ],
             ],
             'label' => [
@@ -108,13 +135,19 @@ return [
                 ],
             ],
         ],
-        'error' => 'mb-1 text-xs text-red-600',
-        'help' => 'mb-1 text-xs text-slate-500',
+        'error' => 'mt-1 text-sm text-error-500',
+        'help' => 'mt-1 text-sm text-gray-600',
         'radio' => [
             'field' => 'grid sm:grid-cols-2 gap-4 mt-3',
             'wrapper' => 'flex items-center space-x-2',
-            'input' => 'h-5 w-5 border-slate-300 focus:ring-transparent',
-            'label' => 'block text-sm text-slate-700',
+            'label' => 'block text-sm text-gray-700',
+            'input' => [
+                'default' => 'text-brand-600 border-gray-300 focus:ring-transparent',
+                'sizes' => [
+                    'sm' => 'h-4 w-4',
+                    'md' => 'h-5 w-5',
+                ],
+            ],
         ],
         'iconpicker' => [
             'opener' => 'w-12 h-12 flex justify-center items-center text-primary-600 bg-primary-50 hover:bg-primary-100 rounded-full',
@@ -124,24 +157,74 @@ return [
         ],
     ],
 
+    'fields' => [
+        'label_right_frame' => 'sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:pt-5',
+        'spacings' => 'mt-1',
+        'input_icon' => 'absolute top-1/2 right-3 -translate-y-1/2',
+        'textarea_icon' => 'absolute top-2 right-6',
+    ],
+
     'badges' => [
-        'base' => 'inline-flex items-center font-medium ring-1 ring-inset',
+        'base' => 'inline-flex items-center font-medium ring-1 ring-inset gap-1.5',
+        'dot' => 'w-1.5 h-1.5 rounded-full',
         'types' => [
             'pill_color' => 'rounded-2xl',
+            'pill_outline' => 'rounded-2xl',
+            'badge_color' => 'rounded-md',
+            'badge_modern' => 'rounded-md',
         ],
         'sizes' => [
             'sm' => 'px-2 py-1 text-xs',
+            'md' => 'px-2.5 py-1 text-sm',
+            'lg' => 'px-3 py-1.5 text-sm',
         ],
         'colors' => [
-            'gray' => 'bg-gray-50 text-gray-600 ring-gray-500/10',
+            'gray' => [
+                'default' => 'bg-gray-50 text-gray-700 ring-gray-200',
+                'dot' => 'bg-gray-500',
+            ],
+            'purple' => [
+                'default' => 'bg-purple-50 text-purple-700 ring-purple-200',
+                'dot' => 'bg-purple-500',
+            ],
+            'blue' => [
+                'default' => 'bg-blue-50 text-blue-700 ring-blue-200',
+                'dot' => 'bg-blue-500',
+            ],
+            'pink' => [
+                'default' => 'bg-pink-50 text-pink-700 ring-pink-200',
+                'dot' => 'bg-pink-500',
+            ],
+            'orange' => [
+                'default' => 'bg-orange-50 text-orange-700 ring-orange-200',
+                'dot' => 'bg-orange-500',
+            ],
+            'brand' => [
+                'default' => 'bg-brand-50 text-brand-700 ring-brand-200',
+                'dot' => 'bg-brand-500',
+            ],
+            'error' => [
+                'default' => 'bg-error-50 text-error-700 ring-error-200',
+                'dot' => 'bg-error-500',
+            ],
+            'success' => [
+                'default' => 'bg-success-50 text-success-700 ring-success-200',
+                'dot' => 'bg-success-500',
+            ],
+            'warning' => [
+                'default' => 'bg-warning-50 text-warning-700 ring-warning-200',
+                'dot' => 'bg-warning-500',
+            ],
         ],
     ],
 
     'drop_down' => [
         'button' => 'p-2 hover:bg-slate-50 rounded-lg text-slate-600',
+        'icon' => 'w-5 h-5',
         'menu' => [
-            'wrapper' => 'absolute top-full right-0 bg-white py-2 space-y-1 shadow-md rounded-lg z-10 min-w-40 text-slate-600',
-            'item' => 'w-full text-left whitespace-nowrap p-2 hover:bg-slate-200 flex items-center space-x-2 cursor-pointer',
+            'wrapper' => 'absolute top-full right-0 bg-white shadow-md rounded-lg overflow-hidden z-10 min-w-60',
+            'item' => 'w-full text-left whitespace-nowrap py-3 px-4 hover:bg-slate-200 flex items-center gap-2 cursor-pointer text-gray-700',
+            'icon' => 'w-4 h-4',
         ],
     ],
 

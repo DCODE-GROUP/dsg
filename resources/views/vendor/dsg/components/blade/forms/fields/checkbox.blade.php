@@ -7,10 +7,8 @@
     'errors' => '',
     'showErrors' => true,
     'required' => false,
-    'binding' => 'wire:model',
     'class' => '',
-    'extraClasses' => '',
-    'spacing' => 'mt-1 mb-4',
+    'extraClasses' => [],
 ])
 
 <x-dsg-field
@@ -18,7 +16,6 @@
     :errors="$errors"
     :show-errors="$showErrors"
     :required="$required"
-    spacing="{{ $spacing }}"
     class="{{ $class }}"
     help="{{ $help }}"
 >
@@ -36,7 +33,6 @@
                     :readonly="$field['readonly'] ?? false"
                     extra-classes="{{ $field['extraClasses'] ?? '' }}"
                     :required="$required"
-                    binding="{{ $binding }}"
                     value="{{ $field['value'] ?? '' }}"
                 />
                 <label for="{{ $field['key'] ?? $field['name'] ?? $name }}"

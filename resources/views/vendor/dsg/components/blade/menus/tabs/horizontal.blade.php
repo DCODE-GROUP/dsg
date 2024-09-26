@@ -1,6 +1,6 @@
 @props([
     'size' => '',
-    'tabs' => collect(),
+    'tabs' => [],
     'eventListener' => 'change-tab',
     'extraClasses' => [],
 ])

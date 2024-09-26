@@ -4,9 +4,9 @@
     'id' => '',
     'mask' => '',
     'placeholder' => '',
+    'showErrors' => true,
     'disabled' => false,
     'required' => false,
-    'readonly' => false,
     'hidden' => false,
     'binding' => 'wire:model',
     'model' => '',
@@ -23,10 +23,9 @@
        @if(!empty($model)) x-model="{{ $model }}" @endif
        @if($disabled) disabled @endif
        @if($required) required @endif
-       @if($readonly) readonly @endif
        @if($hidden) hidden @endif
        @if($preventSubmitWithEnter) onkeydown="return !(window.event && window.event.keyCode == 13)" @endif
        {{ $attributes->merge([
-            'class' => config('dsg.forms.input.default') . ' ' . config('dsg.forms.input.readonly.' . ($readonly ? 'on' : 'off')) . ' ' . $extraClasses
+            'class' => dsgClasses(['forms.input.default', 'forms.input.readonly.' . ($disabled ? 'on' : 'off')], $extraClasses)
        ])}}
 />

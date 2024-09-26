@@ -11,8 +11,6 @@
     <h3 class="mt-2 text-sm font-semibold text-gray-900">{{ $title }}</h3>
     <p class="mt-1 text-sm text-gray-500">{{ $message }}</p>
     <div class="mt-6">
-        <x-dsg-secondary-button class="inline-flex items-center" type="link" href="{{ $href }}">
-            <x-heroicon-s-plus-small class="-ml-0.5 mr-1.5 h-5 w-5" /> {{ $button }}
-        </x-dsg-secondary-button>
+        <x-dsg-button type="secondary" href="{{ $href }}"></x-dsg-button>
     </div>
 </div>

@@ -3,19 +3,15 @@
     'name' => '',
     'required' => false,
     'readonly' => false,
-    'binding' => 'wire:model',
-    'extraClasses' => '',
+    'extraClasses' => [],
 ])
 
 <input type="checkbox"
        @if($id ?: $name) id="{{ $id ?: $name }}" @endif
        name="{{ $name }}"
-       @if($name) {{ $binding }}="{{ $name }}" @endif
        @if($required) required @endif
        @if($readonly) readonly @endif
-       {{ $attributes->merge([
-            'class' => config('dsg.forms.checkbox.input.default') . ' ' . config('dsg.forms.checkbox.input.readonly.' . ($readonly ? 'on' : 'off')) . ' ' . $extraClasses
-       ])}}
+       class="{{ dsgClasses(['forms.checkbox.input.default', 'forms.checkbox.input.readonly.'. ($readonly ? 'on' : 'off')], $extraClasses) }}"
 />
 
 <style>

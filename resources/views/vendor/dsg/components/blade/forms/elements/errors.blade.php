@@ -1,10 +1,11 @@
 @props([
     'errors' => '',
     'name',
+    'extraClasses' => [],
 ])
 
 @if($errors)
     @error($name)
-        <span class="{{ config('dsg.forms.error') }}">{{ $message }}</span>
+        <span class="{{ dsgClasses('forms.error', $extraClasses) }}">{{ $message }}</span>
     @enderror
 @endif

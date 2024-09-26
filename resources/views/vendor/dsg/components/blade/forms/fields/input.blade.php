@@ -1,18 +1,17 @@
 @props([
+    'type' => 'text',
     'name' => '',
     'errors' => '',
+    'placeholder' => '',
     'showErrors' => true,
     'required' => false,
     'disabled' => false,
-    'readonly' => false,
     'hidden' => false,
     'label' => '',
     'help' => '',
     'hint' => '',
     'prefix' => '',
     'suffix' => '',
-    'type' => 'text',
-    'placeholder' => '',
     'binding' => 'wire:model',
     'class' => '',
     'mask' => '',
@@ -41,7 +40,6 @@
                    placeholder="{{ $placeholder }}"
                    :required="$required"
                    :disabled="$disabled"
-                   :readonly="$readonly"
                    :hidden="$hidden"
             >
         </div>

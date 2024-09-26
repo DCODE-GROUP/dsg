@@ -1,35 +1,29 @@
 @props([
     'label' => '',
     'name' => '',
-    'required' => true,
+    'required' => false,
     'help' => '',
     'showErrors' => true,
     'errors' => '',
-    'spacing' => 'mt-1 mb-4',
     'labelRight' => false,
+    'extraClasses' => [],
 ])
-<div {{ $attributes->class(['sm:grid sm:grid-cols-3 sm:gap-4 sm:items-start sm:pt-5' => $labelRight]) }}>
+<div {{ $attributes->class([dsgClasses('fields.label_right_frame', $extraClasses) => $labelRight]) }}>
     @if ($label && $label->isNotEmpty())
-        @if($labelRight)
-            <x-dsg-label name="{{ $name }}" class="sm:pt-2">
-                {{ $label }}@if ($required) *@endif
-            </x-dsg-label>
-        @else
-            <x-dsg-label name="{{ $name }}">
-                {{ $label }}@if ($required) *@endif
-            </x-dsg-label>
-        @endif
+        <x-dsg-label name="{{ $name }}" @if($labelRight) class="sm:pt-2" @endif>
+            {{ $label }}@if ($required)*@endif
+        </x-dsg-label>
     @endif
 
-    <div class="{{ $spacing }}">
-        @if (!empty($help))
-            <x-dsg-help-text>{{ $help }}</x-dsg-help-text>
-        @endif
+    <div class="{{ dsgClasses('forms.spacings', $extraClasses) }}">
+        {{ $slot }}
 
         @if ($showErrors)
             <x-dsg-form-error :name="$name" :errors="$errors" />
         @endif
 
-        {{ $slot }}
+        @if (!empty($help))
+            <x-dsg-help-text>{{ $help }}</x-dsg-help-text>
+        @endif
     </div>
 </div>

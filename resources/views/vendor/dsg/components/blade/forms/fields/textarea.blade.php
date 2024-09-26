@@ -2,14 +2,13 @@
     'name' => '',
     'errors' => '',
     'rows' => 5,
+    'placeholder' => '',
     'showErrors' => true,
-    'required' => false,
     'disabled' => false,
-    'readonly' => false,
+    'required' => false,
     'hidden' => false,
     'label' => '',
     'help' => '',
-    'placeholder' => '',
     'binding' => 'wire:model',
     'class' => '',
     'dynamicHeight' => false,
@@ -31,7 +30,6 @@
             placeholder="{{ $placeholder }}"
             :required="$required"
             :disabled="$disabled"
-            :readonly="$readonly"
             :hidden="$hidden"
             binding="{{ $binding }}"
             :dynamic-height="$dynamicHeight"

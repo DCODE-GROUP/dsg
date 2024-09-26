@@ -2,12 +2,14 @@
   <a v-if="href" :href="href" :class="classes">
     <slot v-if="iconPosition === 'left'" name="icon"></slot>
     <span v-if="slots.icon && slots.default"><slot></slot></span>
+    <slot v-else></slot>
     <slot v-if="iconPosition === 'right'" name="icon"></slot>
   </a>
 
   <button v-else :class="classes" :type="buttonType">
     <slot v-if="iconPosition === 'left'" name="icon"></slot>
     <span v-if="slots.icon && slots.default"><slot></slot></span>
+    <slot v-else></slot>
     <slot v-if="iconPosition === 'right'" name="icon"></slot>
   </button>
 </template>
@@ -21,7 +23,7 @@ const props = defineProps({
     type: String,
     default: "primary",
     validator(value) {
-      return ["primary", "secondary", "tertiary", "link"].includes(value);
+      return ["primary", "secondary", "tertiary", "link", "secondary_gray", "tertiary_gray", "link_gray"].includes(value);
     },
   },
   size: {
@@ -63,7 +65,7 @@ function getClasses() {
   return dsgClasses(
     [
       "buttons.default",
-      "buttons.sizes." + props.size + "." + (slots.icon && !slots.default ? "icon" : "default"),
+      "buttons.sizes." + props.size + "." + (slots.icon && !slots.default ? "with_icon" : (["link", "link_gray"].includes(props.type) ? "link" : "default")),
       "buttons." + props.type + "." + (props.disabled ? "disabled" : "default"),
     ],
     props.extraClasses,
