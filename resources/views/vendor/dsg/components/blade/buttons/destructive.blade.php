@@ -5,6 +5,7 @@
     'iconPosition' => '',
     'href' => '',
     'disabled' => false,
+    'buttonType' => 'button',
     'extraClasses' => [],
 ])
 
