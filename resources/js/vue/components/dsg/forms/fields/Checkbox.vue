@@ -31,7 +31,6 @@
 </template>
 
 <script setup>
-import AlertCircle from "@svg/alert-circle.svg";
 import { inject, ref, watch } from "vue";
 
 const dsgClasses = inject("dsgClasses");

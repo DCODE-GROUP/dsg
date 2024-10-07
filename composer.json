@@ -1,6 +1,6 @@
 {
     "name": "dcodegroup/dsg",
-    "description": "UI components for livewire 3.",
+    "description": "UI components of Untitled UI",
     "type": "library",
     "require": {
         "spatie/laravel-package-tools": "^1.16",

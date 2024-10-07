@@ -12,9 +12,9 @@
     'hint' => '',
     'prefix' => '',
     'suffix' => '',
-    'binding' => 'wire:model',
     'class' => '',
     'mask' => '',
+    'extraClasses' => [],
 ])
 
 <x-dsg-field
@@ -24,6 +24,7 @@
         :required="$required"
         class="{{ $class }}"
         help="{{ $help }}"
+        :extra-classes="$extraClasses"
 >
     <x-slot name="label">{{ $label }}</x-slot>
 
@@ -51,9 +52,8 @@
                 placeholder="{{ $placeholder }}"
                 :required="$required"
                 :disabled="$disabled"
-                :readonly="$readonly"
                 :hidden="$hidden"
-                binding="{{ $binding }}"
+                :extra-classes="$extraClasses"
             />
 
             @if($hint)
@@ -75,9 +75,8 @@
                 placeholder="{{ $placeholder }}"
                 :required="$required"
                 :disabled="$disabled"
-                :readonly="$readonly"
                 :hidden="$hidden"
-                binding="{{ $binding }}"
+                :extra-classes="$extraClasses"
             />
 
             <x-heroicon-s-credit-card class="w-7 h-7 absolute right-3 top-1/2 -translate-y-1/2 text-neutral-200 bg-white"/>
@@ -97,10 +96,8 @@
                 placeholder="{{ $placeholder }}"
                 :required="$required"
                 :disabled="$disabled"
-                :readonly="$readonly"
                 :hidden="$hidden"
-                binding="{{ $binding }}"
-                extraClasses="{{ $prefix ? '!rounded-l-none' : '' }} {{ $suffix ? '!rounded-r-none' : '' }}"
+                :extra-classes="['forms_input_default' => (($prefix ? '!rounded-l-none' : '') . ' ' . ($suffix ? '!rounded-r-none' : ''))]"
             />
 
             @if($suffix)
