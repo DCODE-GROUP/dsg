@@ -223,8 +223,8 @@ return [
         'icon' => 'w-5 h-5',
         'menu' => [
             'wrapper' => 'absolute top-full right-0 bg-white shadow-md rounded-lg overflow-hidden z-10 min-w-60',
-            'item' => 'w-full text-left whitespace-nowrap py-3 px-4 hover:bg-slate-200 flex items-center gap-2 cursor-pointer text-gray-700',
-            'icon' => 'w-4 h-4',
+            'item' => 'w-full text-left whitespace-nowrap py-3 px-4 hover:bg-gray-50 flex items-center gap-2 cursor-pointer text-gray-700 hover:text-gray-700 font-medium',
+            'icon' => 'w-4 h-4 text-gray-500',
         ],
     ],
 
@@ -279,18 +279,29 @@ return [
     ],
 
     'modals' => [
+        'frame' => 'fixed inset-0 z-50 p-4',
         'background' => 'absolute inset-0 bg-gray-500 bg-opacity-75 transition-opacity',
         'window' => 'fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 overflow-x-hidden rounded-lg bg-white shadow-md transition-all relative z-10 min-w-60 max-w-full max-h-full',
     ],
 
     'notifications' => [
         'default' => [
-            'wrapper' => 'flex items-center top-[4.5rem] right-6 z-50 fixed max-w-96 overflow-hidden rounded-lg bg-green-50 ring-1 ring-green-700 py-2 px-3 space-x-2',
-            'message' => 'flex-1 text-green-700 flex w-56',
+            'wrapper' => 'absolute top-0 inset-x-2 flex gap-4 z-50 rounded-xl py-4 pl-4 pr-12 border border-gray-300',
+            'title' => 'text-gray-700 font-semibold',
+            'message' => 'text-gray-600',
         ],
+        'content' => 'flex-1 flex flex-col gap-1 text-sm',
         'bubble' => [
             'wrapper' => 'flex items-center space-x-2 rounded-lg ring-1 py-2 px-3',
             'message' => 'flex-1 font-medium ',
+        ],
+        'color' => [
+            'success' => [
+                'wrapper' => 'bg-success-25',
+            ],
+            'error' => [
+                'wrapper' => 'bg-error-25',
+            ],
         ],
     ],
 

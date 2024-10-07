@@ -1,5 +1,6 @@
 @props([
     'name' => '',
+    'model' => '',
     'errors' => '',
     'showErrors' => true,
     'required' => true,
@@ -25,6 +26,7 @@
 
     <x-dsg-select
             name="{{ $name }}"
+            model="{{ $model }}"
             placeholder="{{ $placeholder }}"
             binding="{{ $binding }}"
             :required="$required"

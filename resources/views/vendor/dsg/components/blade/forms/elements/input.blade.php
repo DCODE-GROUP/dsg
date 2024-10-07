@@ -8,10 +8,9 @@
     'disabled' => false,
     'required' => false,
     'hidden' => false,
-    'binding' => 'wire:model',
     'model' => '',
     'preventSubmitWithEnter' => false,
-    'extraClasses' => '',
+    'extraClasses' => [],
 ])
 
 <input type="{{ $type }}"
@@ -19,7 +18,6 @@
        @if($id ?: $name) id="{{ $id ?: $name }}" @endif
        @if($mask)x-mask="{{ $mask }}"@endif
        placeholder="{{ $placeholder }}"
-       @if($name) {{ $binding }}="{{ $name }}" @endif
        @if(!empty($model)) x-model="{{ $model }}" @endif
        @if($disabled) disabled @endif
        @if($required) required @endif

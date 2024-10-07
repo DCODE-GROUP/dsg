@@ -2,10 +2,10 @@
 
 @props([
     'eventListener' => 'open-modal',
-    'extraClasses' => ''
+    'extraClasses' => [],
 ])
 
-<div class="fixed inset-0 z-50 p-4"
+<div class="{{ dsgClasses('modals.frame', $extraClasses) }}"
      aria-labelledby="modal-title"
      role="dialog" aria-modal="true"
      x-data="{ modalOpen: false }"
@@ -17,7 +17,7 @@
      x-show="modalOpen"
      x-cloak
 >
-    <div {{ $attributes->merge(['class' => config('dsg.modals.background')]) }}
+    <div class="{{ dsgClasses('modals.background', $extraClasses) }}"
          x-cloak
          x-on:click="modalOpen = false"
          x-transition:enter="transition ease-out duration-300 transform"
@@ -28,7 +28,7 @@
          x-transition:leave-end="opacity-0"
     ></div>
 
-    <div {{ $attributes->merge(['class' => config('dsg.modals.window') . ' ' . $extraClasses ]) }}>
+    <div {{ $attributes->merge(['class' => dsgClasses('modals.window', $extraClasses) ]) }}>
         {{ $slot }}
     </div>
 </div>

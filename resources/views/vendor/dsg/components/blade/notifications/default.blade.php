@@ -1,36 +1,35 @@
+@props([
+    'title' => '',
+    'message' => '',
+    'timer' => 3,
+    'theme' => '',
+])
+
 @php
-    $showMessage = session('notification');
-    if (session()->has('notification_timer')) {
-        $timer = session('notification_timer') ? session('notification_timer') : 'false';
-    } else {
-        $timer = 3;
-    }
-    $linkLabel = session('notification_link_label');
-    $linkUrl = session('notification_link_url');
+    // Validation with fallback values
+    $theme = in_array($theme, ['success','error']) ? $theme : 'success';
 @endphp
 
-<div x-data="{ message: '', show: false, linkLabel: '', linkUrl: '' }"
+<div x-data="{ title: '', message: '', show: false }"
      x-init="
-        {{ session()->has('notification') ? 'showMessage("'.$showMessage.'",'.$timer.',"'.$linkLabel.'","'.$linkUrl.'")' : '' }}
+        @if($title || $message) showMessage('{{$title}}','{{$message}}',{{$timer}}) @endif
 
         document.addEventListener('notification', event => {
-            showMessage(event.detail[0].message, event.detail[0].timer, event.detail[0].linkLabel, event.detail[0].linkUrl);
+            showMessage(event.detail[0].title, event.detail[0].message, event.detail[0].timer);
         });
 
-        function showMessage (flashMessage, timer = 3, lLabel = '', lUrl = '') {
+        function showMessage (nTitle,nMessage,timer) {
             if (timer) {
                 setTimeout(() => { show = false },  timer * 1000);
             }
-            message = flashMessage;
+            title = nTitle;
+            message = nMessage;
             show = true;
-            linkLabel = lLabel;
-            linkUrl = lUrl;
         }
      "
-     class="@dsgClasses('dsg.notifications.default.wrapper')"
+     class="{{ dsgClasses(['notifications.default.wrapper', "notifications.color.{$theme}.wrapper"]) }}"
      x-show="show"
      x-cloak
-     x-on:click="show = false"
      x-transition:enter="transition ease-out duration-300 transform"
      x-transition:enter-start="opacity-0"
      x-transition:enter-end="opacity-100"
@@ -38,15 +37,23 @@
      x-transition:leave-start="opacity-100"
      x-transition:leave-end="opacity-0"
 >
-    <x-heroicon-s-check-circle class="w-5 h-5 text-green-700" />
+    @if($theme === 'success')
+        <x-icon-check-circle class="w-5 h-5 text-success-600" />
+    @else
+        <x-icon-alert-circle class="w-5 h-5 text-{{ $theme }}-600" />
+    @endif
 
-    <p class="@dsgClasses('dsg.notifications.default.message')" x-text="message"></p>
+    <div class="{{ dsgClasses('notifications.content') }}">
+        <span class="{{ dsgClasses('notifications.default.title') }}" x-show="title" x-text="title">{{ $title }}</span>
+        <p class="{{ dsgClasses('notifications.message') }}" x-show="message" x-text="message">{{ $message }}</p>
 
-    <x-dsg-link-tertiary x-if="linkLabel && linkUrl" x-bind:href="linkUrl">
-        <span x-text="linkLabel"></span>
-    </x-dsg-link-tertiary>
+        {!! $slot !!}
+    </div>
 
-    <x-dsg-tertiary-button x-on:click="show = false" extra-classes="hover:bg-green-100 text-slate-600 hover:text-slate-700 !p-1.5">
-        <x-heroicon-o-x-mark class="h-4 w-4" />
-    </x-dsg-tertiary-button>
+    <div class="absolute top-2 right-2">
+        <x-dsg-button type="tertiary_gray" icon="x-close"
+                      :extra-classes="['buttons_default' => '!p-2 !text-gray-400 hover:!text-gray-500']"
+                      x-on:click="show = false"
+        ></x-dsg-button>
+    </div>
 </div>

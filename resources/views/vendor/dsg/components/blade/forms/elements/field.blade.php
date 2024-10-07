@@ -10,7 +10,7 @@
 ])
 <div {{ $attributes->class([dsgClasses('fields.label_right_frame', $extraClasses) => $labelRight]) }}>
     @if ($label && $label->isNotEmpty())
-        <x-dsg-label name="{{ $name }}" @if($labelRight) class="sm:pt-2" @endif>
+        <x-dsg-label :name="$name" class="{{ $labelRight ? 'sm:pt-2' : '' }}">
             {{ $label }}@if ($required)*@endif
         </x-dsg-label>
     @endif
